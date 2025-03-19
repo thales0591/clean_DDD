@@ -1,8 +1,9 @@
 import { AnswerQuestionUseCase } from './answer-question'
-import { Answer } from '@/domain/entities/answer'
+import { Answer } from '@/domain/forum/enterprise/entities/answer'
 import { AnswersRepository } from '../repositories/answers-repository'
 
 const fakeAnswersRepository: AnswersRepository = {
+  // eslint-disable-next-line
   create: async (answer: Answer) => {},
 }
 
