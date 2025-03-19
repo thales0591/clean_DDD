@@ -26,6 +26,8 @@ export class CreateQuestionUseCase {
       content,
     })
 
+    await this.questionsRepository.create(question)
+
     return { question }
   }
 }
