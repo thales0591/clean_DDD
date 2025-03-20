@@ -12,7 +12,7 @@ describe('Delete Answer', () => {
     sut = new DeleteAnswerUseCase(inMemoryAnswersRepository)
   })
 
-  it('should be able to delete a answer', async () => {
+  it('should be able to delete an answer', async () => {
     const newAnswer = makeAnswer(
       {
         authorId: new UniqueEntityId('author-01'),
