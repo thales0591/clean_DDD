@@ -1,6 +1,6 @@
 # DDD (Domain-driven Design)
 
-Design dirigido à domínio
+Repositório dedicado a estudos de design dirigido à domínio
 
 # Domínio
 
