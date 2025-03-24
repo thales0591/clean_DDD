@@ -30,7 +30,6 @@ describe('Choose Question Best Answer', () => {
       authorId: question.authorId.toString(),
       answerId: answer.id.toString(),
     })
-    console.log(inMemoryQuestionsRepository.items)
 
     expect(inMemoryQuestionsRepository.items[0].bestAnswerId).toEqual(answer.id)
   })
