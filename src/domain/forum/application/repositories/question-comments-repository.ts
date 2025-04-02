@@ -7,7 +7,6 @@ export interface QuestionCommmentsRepository {
     questionId: string,
     params: PaginationParams,
   ): Promise<QuestionComment[]>
-
   delete(questionComment: QuestionComment): Promise<void>
   findById(id: string): Promise<QuestionComment | null>
 }
