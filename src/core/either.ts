@@ -1,27 +1,43 @@
 // Error
-export class Left<L> {
-  readonly reason: L
+export class Left<L, R> {
+  readonly value: L
 
-  constructor(reason: L) {
-    this.reason = reason
-  } 
-}
-
-// Success
-export class Right<R> {
-  readonly value: R
-
-  constructor(value: R) { 
+  constructor(value: L) {
     this.value = value
+  }
+
+  isRigth(): this is Right<L, R> {
+    return false
+  }
+
+  isLeft(): this is Left<L, R> {
+    return true
   }
 }
 
-export type Either<L, R> = Left<L> | Right<R>
+// Success
+export class Right<L, R> {
+  readonly value: R
 
-export const left = <L, R>(value: any): Either<L, R> => {
+  constructor(value: R) {
+    this.value = value
+  }
+
+  isRigth(): this is Right<L, R> {
+    return true
+  }
+
+  isLeft(): this is Left<L, R> {
+    return false
+  }
+}
+
+export type Either<L, R> = Left<L, R> | Right<L, R>
+
+export const left = <L, R>(value: L): Either<L, R> => {
   return new Left(value)
 }
 
-export const rigth =  <L, R>(value:any): Either<L, R> => {
+export const rigth = <L, R>(value: R): Either<L, R> => {
   return new Right(value)
 }
