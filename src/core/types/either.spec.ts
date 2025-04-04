@@ -10,7 +10,6 @@ test('success result', () => {
 
   expect(result.isRigth()).toEqual(true)
   expect(result.isLeft()).toEqual(false)
-
 })
 
 test('error result', () => {
