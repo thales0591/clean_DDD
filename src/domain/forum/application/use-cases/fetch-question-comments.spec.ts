@@ -40,11 +40,11 @@ describe('Fetch Question Comments', () => {
     expect(result.value?.questionComments).toHaveLength(3)
   })
 
-  it.skip('should be able to fetch paginated question comments', async () => {
+  it('should be able to fetch paginated question comments', async () => {
     for (let i = 1; i <= 22; i++) {
       await inMemoryQuestionCommentsRepository.create(
         makeQuestionComment({
-          questionId: new UniqueEntityId(`question-${i}`),
+          questionId: new UniqueEntityId(`question-01`),
         }),
       )
     }

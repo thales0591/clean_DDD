@@ -39,11 +39,11 @@ describe('Fetch Answer Comments', () => {
     expect(result.value?.answerComments).toHaveLength(3)
   })
 
-  it.skip('should be able to fetch paginated answer comments', async () => {
+  it('should be able to fetch paginated answer comments', async () => {
     for (let i = 1; i <= 22; i++) {
       await inMemoryAnswerCommentsRepository.create(
         makeAnswerComment({
-          answerId: new UniqueEntityId(`answer-${i}`),
+          answerId: new UniqueEntityId(`answer-01`),
         }),
       )
     }
