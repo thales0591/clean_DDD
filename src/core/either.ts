@@ -6,7 +6,7 @@ export class Left<L, R> {
     this.value = value
   }
 
-  isRigth(): this is Right<L, R> {
+  isRight(): this is Right<L, R> {
     return false
   }
 
@@ -23,7 +23,7 @@ export class Right<L, R> {
     this.value = value
   }
 
-  isRigth(): this is Right<L, R> {
+  isRight(): this is Right<L, R> {
     return true
   }
 
@@ -38,6 +38,6 @@ export const left = <L, R>(value: L): Either<L, R> => {
   return new Left(value)
 }
 
-export const rigth = <L, R>(value: R): Either<L, R> => {
+export const right = <L, R>(value: R): Either<L, R> => {
   return new Right(value)
 }

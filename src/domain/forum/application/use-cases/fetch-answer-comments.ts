@@ -1,6 +1,6 @@
-import { Either, rigth } from '@/core/either'
+import { Either, right } from '@/core/either'
 import { AnswerComment } from '../../enterprise/entities/answer-comment'
-import { AnswerCommentsRepository } from '../repositories/question-attachments-repository'
+import { AnswerCommentsRepository } from '../repositories/answer-comments-repository'
 
 interface FetchAnswerCommentsUseCaseRequest {
   answerId: string
@@ -26,7 +26,7 @@ export class FetchAnswerCommentsUseCase {
         page,
       })
 
-    return rigth({
+    return right({
       answerComments,
     })
   }

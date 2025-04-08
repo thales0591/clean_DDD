@@ -1,9 +1,9 @@
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { AnswersRepository } from '../repositories/answers-repository'
 import { AnswerComment } from '../../enterprise/entities/answer-comment'
-import { Either, left, rigth } from '@/core/either'
+import { Either, left, right } from '@/core/either'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
-import { AnswerCommentsRepository } from '../repositories/question-attachments-repository'
+import { AnswerCommentsRepository } from '../repositories/answer-comments-repository'
 
 interface CommentOnAnswerUseCaseRequest {
   authorId: string
@@ -43,7 +43,7 @@ export class CommentOnAnswerUseCase {
 
     await this.answerCommentsRepository.create(answerComment)
 
-    return rigth({
+    return right({
       answerComment,
     })
   }

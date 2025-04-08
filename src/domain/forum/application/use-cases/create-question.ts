@@ -1,7 +1,7 @@
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { Question } from '../../enterprise/entities/question'
 import { QuestionsRepository } from '../repositories/questions-repository'
-import { Either, rigth } from '@/core/either'
+import { Either, right } from '@/core/either'
 import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
 import { QuestionAttachmentList } from '../../enterprise/entities/question-attachment-list'
 
@@ -45,7 +45,7 @@ export class CreateQuestionUseCase {
 
     await this.questionsRepository.create(question)
 
-    return rigth({
+    return right({
       question,
     })
   }

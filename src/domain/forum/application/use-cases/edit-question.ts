@@ -1,12 +1,12 @@
-import { Either, left, rigth } from '@/core/either'
+import { Either, left, right } from '@/core/either'
 import { Question } from '../../enterprise/entities/question'
 import { QuestionsRepository } from '../repositories/questions-repository'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 import { NotAllowedError } from './errors/not-allowed-error'
-import { QuestionAttachmentsRepository } from '../repositories/answer-comments-repository'
 import { QuestionAttachmentList } from '../../enterprise/entities/question-attachment-list'
 import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
+import { QuestionAttachmentsRepository } from '../repositories/question-attachments-repository'
 
 interface EditQuestionUseCaseRequest {
   authorId: string
@@ -68,7 +68,7 @@ export class EditQuestionUseCase {
 
     await this.questionsRepository.save(question)
 
-    return rigth({
+    return right({
       question,
     })
   }

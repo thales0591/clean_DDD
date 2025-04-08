@@ -17,7 +17,7 @@ describe('Create Answer', () => {
       content: 'Answer content',
     })
 
-    expect(result.isRigth()).toBe(true)
+    expect(result.isRight()).toBe(true)
     expect(inMemoryAnswersRepository.items[0]).toEqual(result.value?.answer)
   })
 })
