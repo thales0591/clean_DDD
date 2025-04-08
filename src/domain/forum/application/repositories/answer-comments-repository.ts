@@ -1,12 +1,5 @@
-import { PaginationParams } from '@/core/repositories/pagination-params'
-import { AnswerComment } from '../../enterprise/entities/answer-comment'
+import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
 
-export interface AnswerCommmentsRepository {
-  create(answerComment: AnswerComment): Promise<void>
-  findManyByAnswerId(
-    answerId: string,
-    params: PaginationParams,
-  ): Promise<AnswerComment[]>
-  delete(answerComment: AnswerComment): Promise<void>
-  findById(id: string): Promise<AnswerComment | null>
+export interface QuestionAttachmentsRepository {
+  findManyByQuestionId(questionId: string): Promise<QuestionAttachment[]>
 }
