@@ -1,5 +1,6 @@
-import { AnswerComment } from '../../enterprise/entities/answer-comment'
+import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
 
 export interface QuestionAttachmentsRepository {
-  findManyByAnswerId(questionId: string): Promise<AnswerComment[]>
+  findManyByQuestionId(questionId: string): Promise<QuestionAttachment[]>
+  deleteManyByQuestionId(questionId: string): Promise<void>
 }

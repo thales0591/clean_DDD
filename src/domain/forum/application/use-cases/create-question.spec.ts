@@ -1,13 +1,19 @@
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 import { CreateQuestionUseCase } from './create-question'
 import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questions-repository'
+import { InMemoryQuestionAttachmentsRepository } from 'test/repositories/in-memoy-question-attachments-repository'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
+let inMemoryQuestionAttachmentsRepository: InMemoryQuestionAttachmentsRepository
 let sut: CreateQuestionUseCase
 
 describe('Create Question', () => {
   beforeEach(() => {
-    inMemoryQuestionsRepository = new InMemoryQuestionsRepository()
+    inMemoryQuestionAttachmentsRepository =
+      new InMemoryQuestionAttachmentsRepository()
+    inMemoryQuestionsRepository = new InMemoryQuestionsRepository(
+      inMemoryQuestionAttachmentsRepository,
+    )
     sut = new CreateQuestionUseCase(inMemoryQuestionsRepository)
   })
 
@@ -19,7 +25,7 @@ describe('Create Question', () => {
       attachmentsIds: ['1', '2'],
     })
 
-    expect(result.isRigth()).toBe(true)
+    expect(result.isRight()).toBe(true)
     expect(inMemoryQuestionsRepository.items[0]).toEqual(result.value?.question)
     expect(
       inMemoryQuestionsRepository.items[0].attachments.currentItems,
