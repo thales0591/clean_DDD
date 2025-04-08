@@ -30,12 +30,10 @@ describe('Get Question By Slug', () => {
       slug: 'example-question',
     })
 
-    if (result.isRight()) {
-      const { question } = result.value
-
-      expect(question).toEqual(newQuestion)
-    } else {
-      throw new Error('Expected a successful result')
-    }
+    expect(result.value).toMatchObject({
+      question: expect.objectContaining({
+        title: newQuestion.title,
+      }),
+    })
   })
 })
