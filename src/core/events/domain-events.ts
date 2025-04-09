@@ -29,7 +29,7 @@ export class DomainEvents {
   }
 
   private static findMarkedAggregateByID(
-    id: UniqueEntityID,
+    id: UniqueEntityId,
   ): AggregateRoot<any> | undefined {
     return this.markedAggregates.find((aggregate) => aggregate.id.equals(id))
   }
